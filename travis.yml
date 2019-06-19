@@ -1,0 +1,24 @@
+# Installiert Hugo um dann bei jedem Master-push automatisch mittels 
+# "hugo"-Kommando die Webseite aus den Hugo-Sourcen zu generieren.
+#
+install: 
+# Sich die neuste Hugo Intallationsdatei für Linux 64 Bit Systeme runterladen
+- wget https://github.com/gohugoio/hugo/releases/download/v0.55.6/hugo_0.55.6_Linux-64bit.deb
+# Die Hugo Installationsdatei entpacken und auf dem Travis Server ausführen
+- sudo dpkg -i hugo*.deb
+# zur Kontrolle einer erfolgreichen Installation die Versionsnummer anzeigen
+- hugo version
+
+before_script:
+# ein ev. bereits bestehendes public Verzeichnis löschen
+- rm - rf public
+
+script:
+# die Webseite generieren
+- hugo
+
+branches:
+# nur dann ausführen wenn sich der master-branch geändert hat
+  only:
+  - master
+
