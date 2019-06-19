@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 baseURL = "/"
 languageCode = "en-US"
 defaultContentLanguage = "en"
@@ -83,15 +82,3 @@ name = "<i class='fas fa-fw fa-bullhorn'></i> Crédits"
 url = "/credits"
 weight = 30
 
-=======
-baseURL = "http://example.org/"
-languageCode = "en-us"
-title = "My New Hugo Site"
-
-# Change the default theme to be use when building the site with Hugo
-theme = "hugo-theme-learn"
-
-# For search functionality
-[outputs]
-home = [ "HTML", "RSS", "JSON"]
->>>>>>> b4484407f34a1f4e30cc06a4de2bc009d89e603c
