@@ -1,4 +1,12 @@
 install: 
+# AWS Passwort Manager installieren. Damit können die AWS Credentials aus den 
+# folgenden, in Travis gesetzten Umgebungsvariablen ausgelesen werden: 
+# AWS_ACCESS_KEY_ID und AWS_SECRET_ACCESS_KEY. 
+# Die AWS Credentials erstellt man unter den AWS Kontoinformationen.  
+#
+# pip ist der Phyton installer
+pip install --user awscli
+
 # Sich die neuste Hugo Intallationsdatei für Linux 64 Bit Systeme runterladen
 - wget https://github.com/gohugoio/hugo/releases/download/v0.55.6/hugo_0.55.6_Linux-64bit.deb
 
@@ -10,10 +18,21 @@ install:
 before_script:
 # ein ev. bereits bestehendes public Verzeichnis löschen
 - rm -rf public
-
-script:
 # die Webseite generieren
 - hugo
+
+script:
+# Syncs directories and S3 prefixes. 
+# Recursively copies new and updated files from the source directory 
+# to the destination. 
+# Only creates folders in the destination if they contain one or more files.
+#
+#  sync <LocalPath> <S3Uri> or <S3Uri> <LocalPath> or <S3Uri> <S3Uri>
+#  
+#  --acl: setting security to public read
+#  --delete: delte all old files before copying the new ones
+- aws s3 sync public/ s3://pixvote --acl public-read --delete
+
 
 branches:
 # nur dann ausführen wenn sich der master-branch geändert hat
