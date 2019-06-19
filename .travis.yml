@@ -5,7 +5,7 @@ install:
 # Die AWS Credentials erstellt man unter den AWS Kontoinformationen.  
 #
 # pip ist der Phyton installer
-pip install --user awscli
+- pip install --user awscli
 
 # Sich die neuste Hugo Intallationsdatei für Linux 64 Bit Systeme runterladen
 - wget https://github.com/gohugoio/hugo/releases/download/v0.55.6/hugo_0.55.6_Linux-64bit.deb
