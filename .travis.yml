@@ -1,6 +1,7 @@
 install: 
 # Sich die neuste Hugo Intallationsdatei für Linux 64 Bit Systeme runterladen
 - wget https://github.com/gohugoio/hugo/releases/download/v0.55.6/hugo_0.55.6_Linux-64bit.deb
+
 # Die Hugo Installationsdatei entpacken und auf dem Travis Server ausführen
 - sudo dpkg -i hugo*.deb
 # zur Kontrolle einer erfolgreichen Installation die Versionsnummer anzeigen
@@ -16,6 +17,6 @@ script:
 
 branches:
 # nur dann ausführen wenn sich der master-branch geändert hat
-  only:
-  - master
+ only:
+ - master
 
