@@ -9,7 +9,7 @@ install:
 
 before_script:
 # ein ev. bereits bestehendes public Verzeichnis löschen
-- rm - rf public
+- rm -rf public
 
 script:
 # die Webseite generieren
